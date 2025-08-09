@@ -48,7 +48,6 @@
   <style>
     html {
       box-sizing: border-box;
-      height: 100%;
     }
 
     *,
@@ -63,12 +62,18 @@
       font-size: 18px;
       font-family: 'Open Sans', system-ui, sans-serif;
       line-height: 1.4em;
-      background: white;
+      background: #EEE;
       color: #1e1e1e;
       display: grid;
-      grid-template-columns: 450px 1fr;
-      overflow: hidden;
+      grid-template-columns: 100vw;
       min-height: 0;
+    }
+
+    @media screen and (min-width:992px) {
+      body {
+        grid-template-columns: 450px 1fr;
+        overflow: hidden;
+      }
     }
 
     h1,
@@ -82,7 +87,7 @@
     }
 
     h1 {
-      font-size: 56px
+      font-size: 56px;
     }
 
     h2 {
@@ -91,34 +96,87 @@
       letter-spacing: 0.25em;
     }
 
+    a {
+      color: rgb(30, 30, 30);
+      text-underline-offset: 2px;
+      background: rgba(30, 30, 30, 0.0);
+    }
+
+    a:hover {
+      background-color: rgba(30, 30, 30, 0.05);
+    }
+
     header {
-      padding: 72px;
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-      overflow: auto;
-      height: 100vh;
+      padding: clamp(24px, 6vw, 72px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (min-width:992px) {
+      header {
+        height: 100vh;
+        overflow: auto;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 0;
+      }
     }
 
     header svg {
       height: 100px;
-    }   
-
-    #title {
-      margin-bottom:40px;
     }
 
     main {
-      padding: 72px;
-      overflow: auto;
-      height: 100vh;
+      padding: clamp(24px, 6vw, 72px);
+
+    }
+
+    @media screen and (min-width:992px) {
+      main {
+        height: 100vh;
+        overflow: auto;
+      }
+    }
+
+    .portfolio {
+      display:grid;
+      grid-template-columns: 100%;
+      gap:40px;
     }
 
     article {
       width: 1600px;
-      max-width:100%;
+      justify-self: center;
+      max-width: 100%;
+      aspect-ratio: 6 / 4;
+      overflow: hidden;
+      border-radius:8px;      
+      padding:clamp(24px, 6vw, 56px);
+      background:linear-gradient(to right, #005651, #3c8834);
+      color:white;
+      box-shadow:inset 0 -8px 16px rgba(0,0,0,0.1);
+    }
+    #vortex {
+      
+      background:linear-gradient(to right, #424953, #333);
+    }
+     #hsu {
+      
+      background:linear-gradient(to right, #E61856, #382153);
     }
 
     article img {
-      width:100%;
+      width: 100%;
+      border-radius:4px;    
+      box-shadow:0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .small-caps {
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-family: 'Raleway', system-ui, sans-serif;
+    }
+
+    footer {
+      margin-top: clamp(24px, 6vw, 72px);
     }
   </style>
 </head>
@@ -133,10 +191,10 @@
         <g mask="url(#mask0_2_44)">
           <path
             d="M29.7905 9.01473C29.4957 8.4872 29.1932 7.9674 28.8829 7.4554C26.2452 2.97127 21.5439 -0.0155341 16.3771 -7.34844e-07C11.2258 -7.34844e-07 6.53999 2.9868 3.90999 7.4554C3.59973 7.9674 3.29713 8.49493 3.00233 9.01473C0.845594 13.2583 1.02406 15.4228 1.63693 19.9302C1.98606 22.6067 1.90846 25.2831 2.14119 27.9597C2.31186 29.7673 2.50586 31.6137 2.78513 33.4135C3.01013 34.8099 3.32039 36.2141 3.87899 37.5175C4.72459 39.519 6.22966 41.1482 7.68039 42.7231C10.0465 45.2832 11.2335 46.0745 14.8875 46.8115C15.2289 46.8425 16.1753 47.0675 16.3693 47.1141C16.3693 47.1218 16.3693 47.1141 16.3848 47.1141C16.4003 47.1141 16.4003 47.1141 16.4003 47.1141C16.5943 47.0597 17.533 46.8425 17.8821 46.8037C21.5361 46.0667 22.7231 45.2832 25.0893 42.7153C26.54 41.1327 28.0528 39.5113 28.8906 37.5097C29.4569 36.2063 29.7595 34.8099 29.9845 33.4057C30.2638 31.6059 30.4655 29.7517 30.6284 27.9519C30.8689 25.2754 30.7836 22.5989 31.1327 19.9224C31.7455 15.4073 31.924 13.2506 29.7673 9.007L29.7905 9.01473Z"
-            fill="#F6F6F6" />
+            fill="#FFFFFF" />
           <path
             d="M2.00159 20.7215C1.67573 20.5586 1.37319 20.3025 1.01633 20.2327C0.496527 20.1241 0.0310596 20.6517 0.0155263 21.1482C-0.038807 21.73 0.093127 22.2963 0.17066 22.8705C0.263794 23.7549 0.597393 24.5927 0.90766 25.4228C1.08613 25.9271 1.26453 26.4469 1.29559 26.9977C1.34213 27.4554 1.37319 27.9364 1.42746 28.3863C1.45853 28.8208 1.47399 29.2707 1.59813 29.6741C1.71453 30.1164 2.00933 30.4887 2.28086 30.8456L2.62993 31.1947L3.04886 28.9527L3.49886 24.0962L2.62993 21.3809L2.00159 20.7215Z"
-            fill="#F6F6F6" />
+            fill="#FFFFFF" />
           <path
             d="M30.5896 20.7215C30.9155 20.5586 31.218 20.3025 31.5749 20.2327C32.0947 20.1241 32.5601 20.6517 32.5757 21.1482C32.6299 21.73 32.4981 22.2963 32.4205 22.8705C32.3274 23.7549 31.9938 24.5927 31.6835 25.4228C31.5051 25.9271 31.3266 26.4469 31.2956 26.9977C31.2491 27.4554 31.218 27.9364 31.1637 28.3863C31.1327 28.8208 31.1171 29.2707 30.9931 29.6741C30.8767 30.1164 30.5819 30.4887 30.3103 30.8456L29.9612 31.1947L29.5423 28.9527L29.0923 24.0962L29.9612 21.3809L30.5896 20.7215Z"
             fill="#F6F6F6" />
@@ -153,42 +211,49 @@
       </svg>
       <h1>David<br>Clement</h1>
       <p><strong>UI Designer / Web Developer</strong></p>
-       <p>Creative, detail-oriented designer and developer with 10+ years of experience delivering responsive, accessible
+      <p>Creative, detail-oriented designer and developer with 10+ years of experience delivering responsive, accessible
         digital products.
       </p>
-      <a href="#">Resume</a>
-    </section>   
-    <section id="contact">
-      <h2>Contact</h2>
       <div class="contact-row email">
-        <span>E:</span>
-        <a href="mailto:dc@imdc.io">dc@imdc.io</a>
-      </div>
-      <div class="contact-row phone">
-        <span>P:</span>
-        <a href="tel:07734310007">+44 (0)7734 310 007</a>
-      </div>
-      <div class="contact-row location">
-        <span>L:</span>
-        <span>Dundee, Scotland</span>
+        <span class="load-email" data-u="dc" data-d="imdc.io"></span>
       </div>
     </section>
   </header>
+  <!-- d71f85 -->
   <main>
     <section class="portfolio">
-      <article>
-        <img src="https://placehold.co/600x400" alt="">
+      <article id="selwood">
+         <h2>Selwood Housing</h2>
+        <img src="/img/selwood-ss.png" alt="">
+      </article>
+      <article id="vortex">
+        <h2>Vortex Companies</h2>
+        <img src="/img/vortex-ss.png" alt="">
+      </article>
+      <article id="hsu">
+        <h2>Health Sciences University</h2>
+        <img src="/img/hsu-ss.png" alt="">
       </article>
       <article>
-        <img src="https://placehold.co/600x400" alt="">
+        <h2>Ingrid Raphael</h2>
+        <img src="/img/ingrid-ss.png" alt="">
       </article>
       <article>
-        <img src="https://placehold.co/600x400" alt="">
+        <h2>Youth Enquiry Service</h2>
+        <img src="/img/yes-ss.png" alt="">
+      </article>
+      <article>
+        <h2>ePass</h2>
+        <img src="/img/epass-ss.png" alt="">
+      </article>     
+      <article>
+        <h2>Entrust Resource Solutions</h2>
+        <img src="/img/entrust-ss.png" alt="">
       </article>
     </section>
-    <footer>&copy; David Clement / <a href="#">Back to top</a></footer>
+    <footer>&copy; David Clement</footer>
   </main>
-
+  <script src="scripts.js"></script>
 </body>
 
 </html>
