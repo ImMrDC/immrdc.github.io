@@ -1,0 +1,93 @@
+ html {
+   box-sizing: border-box;
+ }
+
+ *,
+ *:before,
+ *:after {
+   box-sizing: border-box;
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+   font-size: 18px;
+   font-family: 'Open Sans', system-ui, sans-serif;
+   line-height: 1.4em;
+
+ }
+
+
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   font-family: 'Raleway', system-ui, sans-serif;
+   line-height: 1em;
+   margin: 0 0 16px;
+ }
+
+ h1 {
+   font-size: 72px;
+ }
+
+ h2 {
+   font-size: 20px;
+   text-transform: uppercase;
+   letter-spacing: 0.25em;
+ }
+
+ p {
+   margin: 0 0 16px;
+ }
+
+ a {
+   color: rgb(30, 30, 30);
+   text-underline-offset: 2px;
+   background: rgba(30, 30, 30, 0.0);
+ }
+
+ a:hover {
+   background-color: rgba(30, 30, 30, 0.05);
+ }
+
+ image {
+   width: auto;
+   height: auto;
+   max-height: 100%;
+   max-width: 100%;
+ }
+
+
+ .container {
+   width: 1000px;
+   max-width: 100%;
+   padding-inline: 24px;
+   margin-inline: auto;
+ }
+
+ .intro {
+   display: grid;
+   gap: 40px 80px;
+   padding-block: clamp(24px, 5vw, 120px);
+ }
+
+ @media screen and (min-width:992px) {
+   .intro {
+     grid-template-columns: 150px 1fr;
+   }
+ }
+
+ .image img {
+   width: 100%;
+ }
+
+ @media screen and (min-width:992px) {
+   .image {
+     height: 240px;
+   }
+
+ }
